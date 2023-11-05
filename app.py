@@ -18,6 +18,9 @@ app.config['SERVER_NAME'] = 'localhost:5000'
 oauth = OAuth(app)
 
 
+# State variable
+User_Level="Unregistered" # Four States "Unregistered", "Admin", "Student", "Teacher"
+
 nonce = generate_token()
 
 @app.route('/')
@@ -26,14 +29,27 @@ def index():
     user_name = session.get('user')
     print(user_name)
     user=""
+    k=""
+    #set user level
     if(user_name):
         user = user_name['given_name']
+        if(user_name['hd']=='karunya.edu.in'):
+            User_Level="Student"
+            k="S"
+        elif(user_name['email']=='paulisaiah@karunya.edu.in'):
+            User_Level="Admin"
+            k="A"
+        elif(user_name['hd']=='karunya.edu.in'):
+            User_Level="Teacher"
+            k="T"
+        else:
+            User_Level="Unregistered"
         if(len(user)>20):
             user = user_name['given_name'][0:20]
 
     # given_name = user_name.split()[0]
 
-    return render_template('index.html',user=user,title=title)
+    return render_template('index.html',user=f"{user} : {k}",title=title)
 
 @app.route('/google/')
 def google():
@@ -70,6 +86,19 @@ def google_auth():
 def logout():
     session.pop('user', None)
     return redirect('/')
+
+
+
+# Protected pages
+@app.route('/dashB')
+def dashBoard():
+    title= 'dashboard'
+
+    # given_name = user_name.split()[0]
+
+    return render_template('dashBoard.html',user=user,title=title)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

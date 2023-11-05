@@ -24,15 +24,17 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/home">Home</a>
 						</li>
+						{% if user %}
 						<li class="nav-item">
-							<a class="nav-link" href="/projects">Projects</a>
+							<a class="nav-link" href="/Profile">Profile</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/test">Add Project</a>
+							<a class="nav-link" href="/dashboard">Dashboard</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/manage">Manage Project</a>
+							<a class="nav-link" href="/manage">Feedbacks</a>
 						</li>
+						{% endif %}
 
 						<!--login-->
 						<li class="nav-item align-items-center">
@@ -80,12 +82,32 @@
 			
 		</p>
 		{% block content %}
+
+
+
+		<div class='container-fluid align-items-center'style="height: 80vh; background-color: #ffffff; vertical-align: middle;">
+			<div class="w-50 align-items-center h-100"style="margin: auto; " >
+				<h1 class="display-5">Hello, Milky Way!</h1>
+				<p class="lead">This is a Simple Project Managment Application. All the pages that are loaded here are dynamic. '\(O-O)/'</p>
+				<p class="lead">The website gonna be updated regularly. Stay tune to check out new features.</p>
+				<hr class="my-4" style="text-align:left;margin-left:0">
+				<p></p>
+				{% if user %}
+				<a class="btn btn-primary btn-lg w-25" href="/dashboard" target="_blank" role="button">Dashboard</a>
+				{% else %}
+				<a class="btn btn-primary btn-lg w-25" href="google/" target="_blank" role="button">Login</a>
+				{% endif %}
+			</div>
+		</div>
+
+
+
 		{% endblock %}
 
 
 
 
-		<footer class="site-footer fixed-bottom" id="footer">
+		<footer class="site-footer" id="footer">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-md-6">
