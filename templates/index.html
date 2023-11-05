@@ -32,7 +32,7 @@
 							<a class="nav-link" href="/dashboard">Dashboard</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/manage">Feedbacks</a>
+							<a class="nav-link" href="/feedback">Feedbacks</a>
 						</li>
 						{% endif %}
 
@@ -81,12 +81,14 @@
 		
 			
 		</p>
+		<div class="fade-in">
 		{% block content %}
 
 
 
-		<div class='container-fluid align-items-center'style="height: 80vh; background-color: #ffffff; vertical-align: middle;">
-			<div class="w-50 align-items-center h-100"style="margin: auto; " >
+		<div class='fade-in'style="height: 90vh; background-color: #ffffff; display:flex; justify-content: center;
+		align-items: center;">
+			<div class="w-50 align-items-center"style="margin: auto; " >
 				<h1 class="display-5">Hello, Milky Way!</h1>
 				<p class="lead">This is a Simple Project Managment Application. All the pages that are loaded here are dynamic. '\(O-O)/'</p>
 				<p class="lead">The website gonna be updated regularly. Stay tune to check out new features.</p>
@@ -102,7 +104,7 @@
 
 
 
-		{% endblock %}
+		{% endblock %}</div>
 
 
 

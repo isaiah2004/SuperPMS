@@ -2,6 +2,8 @@ from flask import Flask, render_template, url_for, redirect,session
 from authlib.integrations.flask_client import OAuth
 from authlib.common.security import generate_token
 import os
+import sqlite3
+import pandas as pd
 
 app = Flask(__name__)
 app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!/xd5\xa2\xa0\x9fR"\xa1\xa8'
@@ -21,10 +23,10 @@ oauth = OAuth(app)
 # State variable
 User_Level="Unregistered" # Four States "Unregistered", "Admin", "Student", "Teacher"
 
-nonce = generate_token()
-
 @app.route('/')
+@app.route('/home')
 def index():
+    global User_Level
     title= 'home'
     user_name = session.get('user')
     print(user_name)
@@ -49,7 +51,7 @@ def index():
 
     # given_name = user_name.split()[0]
 
-    return render_template('index.html',user=f"{user} : {k}",title=title)
+    return render_template('index.html',user=user,title=title)
 
 @app.route('/google/')
 def google():
@@ -84,20 +86,42 @@ def google_auth():
 
 @app.route('/logout')
 def logout():
+    global User_Level
+    User_Level="Unregistered"
     session.pop('user', None)
     return redirect('/')
 
 
 
 # Protected pages
-@app.route('/dashB')
+@app.route('/dashboard')
 def dashBoard():
+    global User_Level
+    print(User_Level)
     title= 'dashboard'
+    ##########################################     BOILER PLATE   ##########################################
+    user_name = session.get('user')
+    print(user_name)
+    user=""
+    
+    if(user_name):
+        if(len(user)>20):
+            user = user_name['given_name'][0:20]
+    ##########################################     BOILER PLATE   ##########################################
+    ##########################################     BOILER PLATE   ##########################################
+    print(User_Level)
+    if(User_Level=="Unregistered"):
+        title= 'Unauthorized'
+        return render_template('Unauthorized.html',user=user,title=title)
+    ##########################################     BOILER PLATE   ##########################################
 
-    # given_name = user_name.split()[0]
+    conn = sqlite3.connect('data.sqlite')
+    df = pd.read_sql_query("SELECT * FROM teachers", conn)# Replace 'your_table_name' with the name of your table
+    df = df.to_html()
+    # print(df)
+    conn.close()
 
-    return render_template('dashBoard.html',user=user,title=title)
-
+    return render_template('dashBoard.html',user=user,title=title, df=df)
 
 
 if __name__ == "__main__":

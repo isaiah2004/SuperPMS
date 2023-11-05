@@ -31,8 +31,9 @@ html, body {
     height: fit-content;
     padding: 20px 10px 10px 10px;
     transition: top 0.3s;
-    /*Transitioneffectwhenslidingdown(andup)*/margin-bottom: 0;
-    border-bottom: 2px solid #000 ;
+    /*Transitioneffectwhenslidingdown(andup)*/
+    margin-bottom: 0;
+    border-bottom: 2px solid #f36d86 ;
     border-radius: 0px 0px 6px 6px;
     -webkit-border-radius: 0px 0px 6px 6px;
     -moz-border-radius: 0px 0px 6px 6px;
@@ -83,11 +84,11 @@ html, body {
 
 .site-footer
 {
-    background-color:#ffffff;
+    background-color:#eeb5c0;
     padding:45px 0 20px;
     font-size:15px;
     line-height:24px;
-    color:#737373;
+    color:#171717;
 
     border-top: 2px solid #000 ;
     border-radius: 0px 0px 6px 6px;
@@ -97,12 +98,12 @@ html, body {
     -o-border-radius: 0px 0px 6px 6px;
 }
 .site-footer p{
-    color: #808080;
+    color: #171717;
     font-size: medium;
 }
 .site-footer hr
 {
-    border-top-color:#bbb;
+    border-top-color:#171717;
     opacity:0.5
 }
 .site-footer hr.small
@@ -120,7 +121,7 @@ html, body {
 }
 .site-footer a
 {
-    color:#737373;
+    color:#171717;
 }
 .site-footer a:hover
 {
@@ -464,5 +465,21 @@ html, body {
     }
     .social-icons{
         padding-right: 32%;
+    }
+}
+
+/* Animarions */
+
+.fade-in {
+    animation: fadeInAnimation 0.6s;
+    -webkit-animation: fadeInAnimation 0.6s;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
