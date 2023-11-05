@@ -92,6 +92,12 @@ def logout():
     return redirect('/')
 
 
+@app.route('/404')
+def Error():
+    return render_template('404.html')
+
+
+
 
 # Protected pages
 @app.route('/dashboard')

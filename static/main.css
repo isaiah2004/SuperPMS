@@ -10,6 +10,12 @@ html, body {
 .carousel-inner > .item > img { width:100%; height:570px; }
 
 
+/* My suggestions */
+.btn-primary:hover{
+    color: #eceeef;
+}
+
+/* end */
 .container-fluid  {
     top: 40%;
     font-family: monospace;
