@@ -39,7 +39,7 @@ html, body {
     transition: top 0.3s;
     /*Transitioneffectwhenslidingdown(andup)*/
     margin-bottom: 0;
-    border-bottom: 2px solid #f36d86 ;
+    border-bottom: 2px solid #d06ac9 ;
     border-radius: 0px 0px 6px 6px;
     -webkit-border-radius: 0px 0px 6px 6px;
     -moz-border-radius: 0px 0px 6px 6px;
@@ -90,7 +90,7 @@ html, body {
 
 .site-footer
 {
-    background-color:#eeb5c0;
+    background-color:#d06ac9;
     padding:45px 0 20px;
     font-size:15px;
     line-height:24px;

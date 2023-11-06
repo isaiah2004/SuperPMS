@@ -1,0 +1,27 @@
+{% extends "StuDashBoard.html" %} 
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block Management %}
+
+<div id="content-wrapper">
+    <div style="height:2em;"></div>
+    <div class="container-fluid">
+
+
+        <h1 class="h1 mb-0 text-gray-800">Course Registeration</h1>
+        <h2>Course Registeration</h2>
+        <form action="/stuRegCorCall" method="post">
+            <select name="Course">
+                {% for i in Courses %}
+                <option class="px-3 py-1 h-100" value="{{i[0]}}">{{i[2]}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" class="btn btn-success btn-icon-split px-3 py-1" value="Submit">
+        </form>
+        {{corTable | safe}}
+
+    </div>
+</div>
+{% endblock %}

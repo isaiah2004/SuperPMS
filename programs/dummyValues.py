@@ -44,8 +44,8 @@ def insert_dummy_subjects_values():
 # Function to insert 10 dummy values into the projects table
 def insert_dummy_projects_values():
     for i in range(1, 11):
-        cur.execute(f'''INSERT INTO projects (title, course_id, semester_id, year, due_date) 
-                        VALUES ("Project Title {i}", {i}, {i}, 2023, "{datetime.now()}")''')
+        cur.execute(f'''INSERT INTO projects (title, course_id, semester_id, status, marks, year, due_date) 
+                        VALUES ("Project Title {i}", {i}, {i},"TO BE APPROVED",{i*9+9}, 2023, "{datetime.now()}")''')
 
 
 

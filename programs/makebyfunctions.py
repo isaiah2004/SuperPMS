@@ -93,6 +93,8 @@ def create_projects_table():
         semester_id INTEGER,
         year INTEGER,
         due_date VARCHAR,
+        status VARCHAR,
+        marks INTEGER CHECK (marks >= 0 AND marks <= 100),
         FOREIGN KEY(course_id) REFERENCES courses(id),
         FOREIGN KEY(semester_id) REFERENCES semesters(id)
     )''')

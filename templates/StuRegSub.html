@@ -1,0 +1,17 @@
+{% extends "StuDashBoard.html" %} 
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block Management %}
+<h1>Welcome to the Subject Registeration</h1>
+<h2>Choose the Subject</h2>
+<form action="/stuRegSubCall" method="post">
+    <select name="Subject">
+        {% for i in Subjects %}
+        <option value="{{i[0]}}">{{i[0]}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

@@ -2,4 +2,3 @@ old db/
 .venv/
 .vscode/
 __pycache__/
-gulpfile.js
